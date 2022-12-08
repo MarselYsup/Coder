@@ -4,7 +4,7 @@ import ru.itis.coder.util.to8bitString
 import java.lang.StringBuilder
 
 private const val DICTIONARY_SIZE = 255
-private const val SEPARATOR_SIGN = ' '
+//private const val SEPARATOR_SIGN = ' '
 
 fun encodeLZW(text: String, dictionary: MutableMap<String, String>): String {
     var lastNumberOfDictionary = dictionary.size
@@ -12,7 +12,7 @@ fun encodeLZW(text: String, dictionary: MutableMap<String, String>): String {
     var input = text
     while(input.isNotEmpty()) {
         val longestPrefix = dictionary.longestPrefixOf(input)
-        code.append(dictionary[longestPrefix] + SEPARATOR_SIGN)
+        code.append(dictionary[longestPrefix] )
         val lengthPrefix = longestPrefix.length
         if(lengthPrefix < input.length) {
             if(lastNumberOfDictionary + 1 > DICTIONARY_SIZE) error("Dictionary over flow")

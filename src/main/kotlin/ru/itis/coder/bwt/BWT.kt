@@ -4,6 +4,7 @@ import ru.itis.coder.bwt.data.BWTData
 import java.util.TreeSet
 
 fun transformBWT(line: String): BWTData {
+    if(line.isEmpty()) error("Input string is empty")
     val treeSet = getSortSequence(line)
     return BWTData(getResultLine(treeSet), getLineNumberInSequence(line, treeSet))
 }
